@@ -6,6 +6,14 @@
 
 - ### mysql-version: 8.0.30
 
+- ```mysql
+  CREATE TABLE `user` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `message` varchar(255) DEFAULT NULL COMMENT '信息',
+    PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+  ```
+
 # Getting Started
 
 ### Reference Documentation
