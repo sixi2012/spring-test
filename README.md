@@ -6,6 +6,8 @@
 
 - ### java-version: 17
 
+- ### redis-version: 7.2.4
+
 - ### mysql-version: 8.0.30
 
 - ```mysql
