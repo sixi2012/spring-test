@@ -1,4 +1,4 @@
-# springboot-with-mybaits
+# springboot-with-mybatis
 
 - ### spring-version: 3.2.4
 
