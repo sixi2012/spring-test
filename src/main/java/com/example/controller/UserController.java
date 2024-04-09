@@ -33,6 +33,8 @@ public class UserController {
         UserVo userVo = new UserVo();
         userVo.setId(userBo.getId());
         userVo.setName(userBo.getName());
+        userVo.setAge(userBo.getAge());
+        userVo.setMessage(userBo.getMessage());
         return userVo;
     }
 

@@ -20,6 +20,8 @@ public class UserServiceImpl implements UserService {
         UserBo userBo = new UserBo();
         userBo.setId(userEntity.getId());
         userBo.setName(userEntity.getName());
+        userBo.setAge(userEntity.getAge());
+        userBo.setMessage(userEntity.getMessage());
         return userBo;
     }
 }

@@ -11,11 +11,19 @@
 - ### mysql-version: 8.0.30
 
 - ```mysql
-  CREATE TABLE `user` (
-    `id` int NOT NULL AUTO_INCREMENT,
-    `message` varchar(255) DEFAULT NULL COMMENT '信息',
-    PRIMARY KEY (`id`)
-  ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `user` (
+`id` int NOT NULL AUTO_INCREMENT,
+`name` varchar(255) NOT NULL COMMENT '姓名',
+`age` int NOT NULL COMMENT '年龄',
+`message` varchar(255) DEFAULT NULL COMMENT '备注',
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO user (name, age, message)
+VALUES ('John', 30, 'A software engineer'),
+('Alice', 25, 'A data scientist'),
+('Bob', 27, '');
   ```
 
 # Getting Started

@@ -7,5 +7,5 @@ public class UserEntity {
     private Integer id;
     private String name;
     private Integer age;
-    private String desc;
+    private String message;
 }

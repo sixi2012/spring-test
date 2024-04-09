@@ -4,8 +4,7 @@
 <mapper namespace="com.example.mapper.UserMapper">
 
     <select id="findById" resultType="com.example.entity.UserEntity">
-        SELECT id,message from user WHERE id = #{id}
+        SELECT id,name,age,message from user WHERE id = #{id}
     </select>
-
 
 </mapper>
