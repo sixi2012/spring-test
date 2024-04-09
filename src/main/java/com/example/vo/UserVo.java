@@ -11,5 +11,5 @@ public class UserVo implements Serializable {
     private Integer id;
     private String name;
     private Integer age;
-    private String message;
+    private String desc;
 }

@@ -1,8 +1,8 @@
 package com.example.controller;
 
-import com.example.Service.RedisService;
-import com.example.Service.UserService;
-import com.example.entity.User;
+import com.example.bo.UserBo;
+import com.example.service.RedisService;
+import com.example.service.UserService;
 import com.example.vo.UserVo;
 import jakarta.annotation.Resource;
 import org.apache.ibatis.annotations.Param;
@@ -27,12 +27,16 @@ public class UserController {
     private RedisTemplate<String, Object> redisTemplate;
 
     @GetMapping("/getById")
-    public String getById(@Param("id") int id){
-        User user = userService.findById(id);
-        return user.getMessage();
+    public UserVo getById(@Param("id") int id){
+        UserBo userBo = userService.findById(id);
+
+        UserVo userVo = new UserVo();
+        userVo.setId(userBo.getId());
+        userVo.setName(userBo.getName());
+        return userVo;
     }
 
-    @GetMapping("/getByName")
+    @GetMapping("/getCache")
     public String getByName(@Param("name") String name){
 
         redisService.set(name, name + "_redis_test_" + System.currentTimeMillis());
@@ -46,7 +50,6 @@ public class UserController {
         uv.setId(userVo.getId());
         uv.setAge(111);
         uv.setName(userVo.getName());
-        uv.setMessage("test111");
 
         List<UserVo> rsp = new ArrayList<>();
         rsp.add(uv);

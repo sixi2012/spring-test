@@ -1,6 +1,6 @@
-package com.example.Service.impl;
+package com.example.service.impl;
 
-import com.example.Service.RedisService;
+import com.example.service.RedisService;
 import jakarta.annotation.Resource;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
