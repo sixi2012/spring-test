@@ -1,10 +1,13 @@
 package com.example.controller;
 
 import com.example.bo.UserBo;
+import com.example.constants.ValidationEnum;
+import com.example.exception.ParamCheckException;
 import com.example.service.RedisService;
 import com.example.service.UserService;
 import com.example.vo.UserVo;
 import jakarta.annotation.Resource;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -47,6 +50,10 @@ public class UserController {
 
     @PostMapping("/getAll")
     public List<UserVo> getAll(@RequestBody UserVo userVo){
+
+        if (StringUtils.isBlank(userVo.getName())){
+            throw new ParamCheckException(ValidationEnum.PARAM_IS_NOT_NULL);
+        }
 
         UserVo uv = new UserVo();
         uv.setId(userVo.getId());
