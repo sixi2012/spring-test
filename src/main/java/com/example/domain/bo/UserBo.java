@@ -1,9 +1,9 @@
-package com.example.entity;
+package com.example.domain.bo;
 
 import lombok.Data;
 
 @Data
-public class UserEntity {
+public class UserBo {
     private Integer id;
     private String name;
     private Integer age;

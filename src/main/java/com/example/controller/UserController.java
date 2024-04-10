@@ -1,11 +1,11 @@
 package com.example.controller;
 
-import com.example.bo.UserBo;
+import com.example.domain.bo.UserBo;
 import com.example.constants.ValidationEnum;
 import com.example.exception.ParamCheckException;
 import com.example.service.RedisService;
 import com.example.service.UserService;
-import com.example.vo.UserVo;
+import com.example.domain.bo.vo.UserVo;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.annotations.Param;

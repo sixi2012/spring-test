@@ -1,6 +1,6 @@
 package com.example.mapper;
 
-import com.example.entity.UserEntity;
+import com.example.domain.bo.entity.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -1,7 +1,7 @@
 package com.example.service.impl;
 
-import com.example.bo.UserBo;
-import com.example.entity.UserEntity;
+import com.example.domain.bo.UserBo;
+import com.example.domain.bo.entity.UserEntity;
 import com.example.service.UserService;
 import com.example.mapper.UserMapper;
 import jakarta.annotation.Resource;

@@ -1,7 +1,6 @@
 package com.example.service;
 
-import com.example.bo.UserBo;
-import com.example.entity.UserEntity;
+import com.example.domain.bo.UserBo;
 
 public interface UserService {
     public UserBo findById(Integer id);
