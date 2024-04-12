@@ -7,8 +7,8 @@ import com.example.constants.ValidationEnum;
 import com.example.exception.ParamCheckException;
 import com.example.service.RedisService;
 import com.example.service.UserService;
-import com.example.domain.bo.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
+import com.example.domain.vo.UserVo;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +43,7 @@ public class UserController {
         return userVo;
     }
 
-    @GetMapping("/getCache")
+    @GetMapping("/getByCache")
     public String getByName(@Param("name") String name){
 
         redisService.set(name, name + "_redis_test_" + System.currentTimeMillis());
