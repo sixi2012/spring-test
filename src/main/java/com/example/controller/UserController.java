@@ -1,22 +1,24 @@
 package com.example.controller;
 
+import com.example.api.UserApi;
+import com.example.domain.api.UserInfo;
 import com.example.domain.bo.UserBo;
 import com.example.constants.ValidationEnum;
 import com.example.exception.ParamCheckException;
 import com.example.service.RedisService;
 import com.example.service.UserService;
 import com.example.domain.bo.vo.UserVo;
-import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@Slf4j
 @RequestMapping("/user")
 public class UserController {
 
@@ -26,8 +28,8 @@ public class UserController {
     @Autowired
     private RedisService redisService;
 
-    @Resource
-    private RedisTemplate<String, Object> redisTemplate;
+    @Autowired
+    private UserApi userApi;
 
     @GetMapping("/getById")
     public UserVo getById(@Param("id") int id){
@@ -57,11 +59,23 @@ public class UserController {
 
         UserVo uv = new UserVo();
         uv.setId(userVo.getId());
-        uv.setAge(111);
         uv.setName(userVo.getName());
 
         List<UserVo> rsp = new ArrayList<>();
         rsp.add(uv);
         return rsp;
+    }
+
+    @GetMapping("/getUserInfo")
+    public UserVo getUserInfo(@Param("id") int id){
+        UserInfo userInfo = userApi.getUserInfoByID(id);
+        log.info("----userInfo-------" + userInfo);
+
+        UserVo userVo = new UserVo();
+        userVo.setId(userInfo.getId());
+        userVo.setName(userInfo.getName());
+        userVo.setAge(userInfo.getAge());
+        userVo.setMessage(userInfo.getMessage());
+        return userVo;
     }
 }
