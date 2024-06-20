@@ -7,4 +7,9 @@
         SELECT id,name,age,message from user WHERE id = #{id}
     </select>
 
+    <insert id="savaUserInfo">
+        INSERT INTO user (name, age ,message) VALUES (#{name}, #{age}, #{message})
+
+    </insert>
+
 </mapper>

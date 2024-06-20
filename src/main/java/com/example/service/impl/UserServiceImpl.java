@@ -25,4 +25,14 @@ public class UserServiceImpl implements UserService {
 
         return userBo;
     }
+
+    @Override
+    public int savaUserInfo(UserBo userBo) {
+        UserEntity userEntity  = new UserEntity();
+        userEntity.setName(userBo.getName());
+        userEntity.setAge(userBo.getAge());
+        userEntity.setMessage(userBo.getMessage());
+
+        return userMapper.savaUserInfo(userEntity);
+    }
 }

@@ -8,10 +8,7 @@ import com.example.service.RedisService;
 import com.example.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
@@ -57,5 +54,16 @@ public class UserController {
         userVo.setAge(userInfo.getAge());
         userVo.setMessage(userInfo.getMessage());
         return userVo;
+    }
+
+    @PostMapping("saveInfo")
+    public int saveUserInfo(@RequestBody UserVo userVo) {
+
+        UserBo userBo = new UserBo();
+        userBo.setName(userVo.getName());
+        userBo.setAge(userVo.getAge());
+        userBo.setMessage(userVo.getMessage());
+
+        return  userService.savaUserInfo(userBo);
     }
 }
